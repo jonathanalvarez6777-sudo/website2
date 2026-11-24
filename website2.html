@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="style2.css">
+    <link rel="icon" type="image/png" href="favicon3.ico" sizes="96x96" />
+    <!---favicon-->
+   
+
+ 
+<!-- Navigation Bar -->
+<header>
+    <nav>
+        <!-- Logo -->
+        <a href="index.html" class="logo" aria-label="JJJ Portfolio Home"></a>
+
+        <!-- Mobile Menu Button -->
+        <input class="menu-btn" type="checkbox" id="menu-btn">
+        <label class="menu-icon" for="menu-btn">
+            <span class="navicon"></span>
+        </label>
+
+        <!-- Navigation Links -->
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutme.html">About</a></li>
+            <li><a href="choicepage.html">Art</a></li>
+            <li><a href="graphicdesign.html">Graphic Design</a></li>
+            <li><a href="website2.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<!-- =========================
+     CONTACT PAGE
+========================= -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="contactsheet.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <form action="https://api.web3forms.com/submit" method="POST">
+
+        <!-- Web3Forms Access Key -->
+        <input type="hidden" name="access_key"
+        value="bb0d026a-2bcf-485d-8175-7442315d5898">
+
+        <!-- Contact Form Heading -->
+        <label for="email">Contact me</label>
+
+        <!-- Email -->
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+        >
+
+        <!-- Subject -->
+        <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="Subject"
+            required
+        >
+
+        <!-- Message -->
+        <textarea
+            id="message"
+            name="message"
+            placeholder="Message"
+            style="height:200px"
+            required
+        ></textarea>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit">
+
+    </form>
+
+</div>
+
+<!-- Website Footer -->
+
+<footer style="
+    background-color: black;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+">
+
+    <div style="
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 35px;
+        margin-bottom: 20px;
+        font-size: 15px;
+    ">
+
+        <a href="aboutme.html"
+           style="color: white; text-decoration: none;">
+            About
+        </a>
+
+        <a href="https://www.instagram.com/66jelo/"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="color: white; text-decoration: none;">
+            Instagram
+        </a>
+
+        <a href="website2.html"
+           style="color: white; text-decoration: none;">
+            Contact
+        </a>
+
+    </div>
+
+    <p style="
+        color: #999999;
+        font-size: 12px;
+        line-height: 1.5;
+        margin: 0;
+    ">
+        &copy; 2026 Jonathan Alvarez
+    </p>
+
+</footer>
+
+</body>
+</html>

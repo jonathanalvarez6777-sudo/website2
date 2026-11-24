@@ -1,0 +1,533 @@
+
+/* =========================
+   CSS RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+
+nav {
+    background-color: black;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+
+
+/* Logo */
+
+nav .logo {
+    display: block;
+    float: left;
+    width: 50px;
+    height: 70px;
+    margin-left: 10px;
+    background-image: url("websitelogo2.png");
+    background-size: 85%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/* Hide Checkbox */
+
+nav .menu-btn {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+nav .menu-btn:focus-visible + .menu-icon {
+    outline: 2px solid white;
+    outline-offset: -4px;
+}
+
+
+/* Hamburger Menu */
+
+nav .menu-icon {
+    cursor: pointer;
+    float: right;
+    padding: 34px 20px;
+    position: relative;
+    user-select: none;
+    z-index: 2;
+}
+
+nav .menu-icon .navicon {
+    display: block;
+    position: relative;
+    width: 25px;
+    height: 2px;
+    background: white;
+    transition: background 0.2s ease-out;
+}
+
+nav .menu-icon .navicon::before,
+nav .menu-icon .navicon::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transition: all 0.2s ease-out;
+}
+
+nav .menu-icon .navicon::before {
+    top: -7px;
+}
+
+nav .menu-icon .navicon::after {
+    top: 7px;
+}
+
+
+/* Navigation Links */
+
+nav .menu {
+    clear: both;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: black;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+nav .menu li a {
+    display: block;
+    padding: 18px 50px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+
+/* Navigation Hover */
+
+nav .menu li a:hover {
+    background-color: white;
+    color: black;
+}
+
+
+/* Selected Page */
+
+nav .menu li a.active {
+    background-color: white;
+    color: black;
+}
+
+
+/* Mobile Menu */
+
+nav .menu-btn:checked ~ .menu {
+    max-height: 350px;
+    overflow-y: auto;
+    visibility: visible;
+}
+
+
+/* Hamburger Animation */
+
+nav .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+}
+
+nav .menu-btn:checked ~ .menu-icon .navicon::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+nav .menu-btn:checked ~ .menu-icon .navicon::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+
+/* =========================
+   DESKTOP NAVIGATION
+========================= */
+
+@media (min-width: 769px) {
+
+    nav .menu {
+        display: flex;
+        float: right;
+        clear: none;
+        max-height: none;
+        height: 70px;
+        overflow: visible;
+        visibility: visible;
+    }
+
+    nav .menu li {
+        display: block;
+    }
+
+    nav .menu li a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70px;
+        padding: 0 20px;
+        white-space: nowrap;
+    }
+
+    nav .menu-icon,
+    nav .menu-btn {
+        display: none;
+    }
+
+}
+
+
+/* =========================
+   ABOUT ME PAGE
+========================= */
+
+.about-page {
+    background-color: white;
+    color: black;
+    padding-top: 70px;
+    min-height: 100vh;
+}
+
+
+/* Main Container */
+
+.about-container {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 60px 6% 100px;
+}
+
+
+/* =========================
+   PAGE HEADING
+========================= */
+
+.about-heading {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 45px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid black;
+}
+
+.about-heading h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: clamp(42px, 6vw, 85px);
+    font-weight: 700;
+    letter-spacing: -3px;
+    line-height: 1.1;
+}
+
+
+/* =========================
+   THREE-PANEL PHOTOGRAPH
+========================= */
+
+.portrait-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portrait-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* =========================
+   ARTIST PROFILE LAYOUT
+========================= */
+
+.about-profile {
+    display: grid;
+    grid-template-columns: minmax(0, 35fr) minmax(0, 65fr);
+    column-gap: 62px;
+    align-items: start;
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 65px auto 0;
+}
+
+
+/* =========================
+   LEFT COLUMN
+========================= */
+
+.artist-info {
+    text-align: left;
+}
+
+
+/* Artist Name */
+
+.artist-info h2 {
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 600;
+    letter-spacing: -1.8px;
+    line-height: 1.1;
+    margin-bottom: 18px;
+}
+
+
+/* Professional Title */
+
+.artist-title {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #666666;
+}
+
+
+/* =========================
+   ARTISTIC DISCIPLINES
+========================= */
+
+.artist-disciplines {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid #cccccc;
+}
+
+
+/* Disciplines Heading */
+
+.artist-disciplines h3 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #666666;
+    margin-bottom: 18px;
+}
+
+
+/* Disciplines List */
+
+.artist-disciplines ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.artist-disciplines li {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: black;
+}
+
+
+/* =========================
+   RIGHT COLUMN: BIOGRAPHY
+========================= */
+
+.about-text {
+    width: 100%;
+    max-width: 700px;
+    text-align: left;
+}
+
+.about-text p {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0;
+    color: black;
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+/* Remove Extra Space After Last Paragraph */
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   TABLET LAYOUT
+========================= */
+
+@media (max-width: 900px) {
+
+    .about-container {
+        padding: 45px 5% 70px;
+    }
+
+    .about-heading {
+        margin-bottom: 35px;
+    }
+
+    .about-profile {
+        column-gap: 35px;
+        margin-top: 45px;
+    }
+
+    .artist-info h2 {
+        font-size: 34px;
+        letter-spacing: -1.2px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+}
+
+
+/* =========================
+   MOBILE PROFILE LAYOUT
+========================= */
+
+@media (max-width: 768px) {
+
+    .about-profile {
+        grid-template-columns: 1fr;
+        row-gap: 35px;
+        margin-top: 35px;
+    }
+
+    .artist-info h2 {
+        font-size: 36px;
+    }
+
+    .artist-title {
+        font-size: 15px;
+    }
+
+    .artist-disciplines {
+        margin-top: 25px;
+        padding-top: 20px;
+    }
+
+    .artist-disciplines ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 20px;
+        row-gap: 12px;
+    }
+
+    .artist-disciplines li {
+        font-size: 14px;
+    }
+
+    .about-text {
+        max-width: 100%;
+        padding-top: 30px;
+        border-top: 1px solid #cccccc;
+    }
+
+    .about-text p {
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE SCREENS
+========================= */
+
+@media (max-width: 600px) {
+
+    .about-container {
+        padding: 30px 20px 50px;
+    }
+
+    .about-heading {
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+    }
+
+    .about-heading h1 {
+        font-size: 42px;
+        letter-spacing: -1.5px;
+    }
+
+    .artist-info h2 {
+        font-size: 32px;
+        letter-spacing: -1px;
+    }
+
+    .about-profile {
+        row-gap: 30px;
+        margin-top: 30px;
+    }
+
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    nav .menu,
+    nav .menu-icon .navicon,
+    nav .menu-icon .navicon::before,
+    nav .menu-icon .navicon::after {
+        transition: none;
+    }
+
+}

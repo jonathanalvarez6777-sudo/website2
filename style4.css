@@ -1,0 +1,630 @@
+
+/* =========================
+   CSS RESET
+========================= */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+
+nav {
+    background-color: rgb(0, 0, 0);
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+
+
+/* Logo */
+
+nav .logo {
+    display: block;
+    float: left;
+    width: 50px;
+    height: 70px;
+    margin-left: 10px;
+    background-image: url("websitelogo2.png");
+    background-size: 85%;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-decoration: none;
+}
+
+
+/* Hide Checkbox */
+
+nav .menu-btn {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+nav .menu-btn:focus-visible + .menu-icon {
+    outline: 2px solid white;
+    outline-offset: -4px;
+}
+
+
+/* Hamburger Menu */
+
+nav .menu-icon {
+    cursor: pointer;
+    float: right;
+    padding: 34px 20px;
+    position: relative;
+    user-select: none;
+    z-index: 2;
+}
+
+nav .menu-icon .navicon {
+    display: block;
+    position: relative;
+    width: 25px;
+    height: 2px;
+    background: white;
+    transition: background 0.2s ease-out;
+}
+
+nav .menu-icon .navicon::before,
+nav .menu-icon .navicon::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transition: all 0.2s ease-out;
+}
+
+nav .menu-icon .navicon::before {
+    top: -7px;
+}
+
+nav .menu-icon .navicon::after {
+    top: 7px;
+}
+
+
+/* Navigation Links */
+
+nav .menu {
+    clear: both;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: black;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+nav .menu li a {
+    display: block;
+    padding: 18px 50px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+
+/* Hover Effect */
+
+nav .menu li a:hover {
+    background-color: white;
+    color: black;
+}
+
+
+/* Selected Page */
+
+nav .menu li a.active {
+    background-color: white;
+    color: black;
+}
+
+
+/* Mobile Menu */
+
+nav .menu-btn:checked ~ .menu {
+    max-height: 350px;
+    overflow-y: auto;
+    visibility: visible;
+}
+
+
+/* Hamburger Animation */
+
+nav .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+}
+
+nav .menu-btn:checked ~ .menu-icon .navicon::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+nav .menu-btn:checked ~ .menu-icon .navicon::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+
+/* =========================
+   DESKTOP NAVIGATION
+========================= */
+
+@media (min-width: 769px) {
+
+    nav .menu {
+        display: flex;
+        float: right;
+        clear: none;
+        max-height: none;
+        height: 70px;
+        overflow: visible;
+        visibility: visible;
+    }
+
+    nav .menu li {
+        display: block;
+    }
+
+    nav .menu li a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70px;
+        padding: 0 20px;
+        white-space: nowrap;
+    }
+
+    nav .menu-icon,
+    nav .menu-btn {
+        display: none;
+    }
+
+}
+
+
+/* =========================
+   GALLERY PAGE
+========================= */
+
+.gallery-page {
+    background-color: white;
+    padding-top: 70px;
+    min-height: 100vh;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+/* Gallery Container */
+
+.gallery-container {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 60px 6% 80px;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   GALLERY HEADING
+========================= */
+
+.gallery-heading {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 45px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid black;
+}
+
+.gallery-heading h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: clamp(42px, 6vw, 85px);
+    font-weight: 700;
+    letter-spacing: -3px;
+    line-height: 1.1;
+    color: black;
+}
+
+
+/* =========================
+   GALLERY GRID
+========================= */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 40px;
+    row-gap: 65px;
+    align-items: start;
+}
+
+
+/* Individual Artwork */
+
+.artwork-card {
+    width: 100%;
+    margin: 0;
+    min-width: 0;
+}
+
+
+/* Uniform Gallery Thumbnails */
+
+.artwork-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+
+/* Image Hover Effect */
+
+.artwork-card img:hover {
+    opacity: 0.75;
+}
+
+.artwork-card img:focus-visible {
+    outline: 3px solid black;
+    outline-offset: 4px;
+}
+
+
+/* =========================
+   ARTWORK CAPTIONS
+========================= */
+
+.artwork-card figcaption {
+    padding-top: 15px;
+    text-align: left;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+/* Artwork Name */
+
+.artwork-card figcaption h3 {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.3px;
+    color: #111111;
+    margin-bottom: 5px;
+}
+
+
+/* Artwork Details */
+
+.artwork-card figcaption p {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #777777;
+}
+
+
+/* =========================
+   ARTWORK LIGHTBOX
+========================= */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 55px 25px 25px;
+    border: none;
+    background: rgba(0, 0, 0, 0.96);
+    color: white;
+    overflow: auto;
+}
+
+.lightbox[open] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.25s ease;
+}
+
+.lightbox::backdrop {
+    background: black;
+}
+
+
+/* Lightbox Content */
+
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 90vw;
+    max-height: 100%;
+}
+
+
+/* Enlarged Artwork */
+
+#lightbox-image {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 75vh;
+    max-height: calc(100dvh - 190px);
+    object-fit: contain;
+    min-height: 0;
+}
+
+
+/* Artwork Information */
+
+.artwork-info {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+/* Artwork Title */
+
+.artwork-info h2 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+
+/* Artwork Details */
+
+.artwork-info p {
+    font-size: 15px;
+    font-weight: normal;
+    color: #bcbcbc;
+    line-height: 1.5;
+}
+
+
+/* Close Button */
+
+.close-lightbox {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: opacity 0.2s ease;
+}
+
+.close-lightbox:hover {
+    opacity: 0.6;
+}
+
+
+/* Lightbox Animation */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================
+   TABLET LAYOUT
+========================= */
+
+@media (max-width: 900px) {
+
+    .gallery-container {
+        padding: 45px 5% 60px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 30px;
+        row-gap: 45px;
+    }
+
+    .gallery-heading {
+        margin-bottom: 35px;
+    }
+
+}
+
+
+/* =========================
+   MOBILE LAYOUT
+========================= */
+
+@media (max-width: 600px) {
+
+    /* Gallery Container */
+
+    .gallery-container {
+        padding: 30px 20px 50px;
+    }
+
+
+    /* Gallery Heading */
+
+    .gallery-heading {
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+    }
+
+    .gallery-heading h1 {
+        font-size: 42px;
+        letter-spacing: -1.5px;
+    }
+
+
+    /* Gallery Grid */
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+    }
+
+
+    /* Artwork Captions */
+
+    .artwork-card figcaption {
+        padding-top: 12px;
+    }
+
+    .artwork-card figcaption h3 {
+        font-size: 16px;
+    }
+
+    .artwork-card figcaption p {
+        font-size: 13px;
+    }
+
+
+    /* Lightbox */
+
+    .lightbox {
+        padding: 55px 15px 20px;
+    }
+
+    .lightbox-content {
+        max-width: 100%;
+    }
+
+    #lightbox-image {
+        max-height: 70vh;
+        max-height: calc(100dvh - 180px);
+    }
+
+    .artwork-info h2 {
+        font-size: 20px;
+    }
+
+    .artwork-info p {
+        font-size: 14px;
+    }
+
+    .close-lightbox {
+        top: 15px;
+        right: 15px;
+        font-size: 35px;
+    }
+
+}
+
+
+/* =========================
+   REDUCED MOTION ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .lightbox[open] {
+        animation: none;
+    }
+
+    .artwork-card img,
+    .close-lightbox,
+    nav .menu,
+    nav .menu-icon .navicon,
+    nav .menu-icon .navicon::before,
+    nav .menu-icon .navicon::after {
+        transition: none;
+    }
+
+}

@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JJJ Portfolio - Black and White Photography</title>
+
+    <link rel="stylesheet" href="style8.css">
+    <link rel="icon" type="image/x-icon" href="favicon3.ico">
+</head>
+
+<body class="photography-page">
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
+
+    <header>
+        <nav>
+
+            <!-- Logo -->
+
+            <a href="index.html" class="logo"
+               aria-label="JJJ Portfolio Home"></a>
+
+            <!-- Mobile Menu Button -->
+
+            <input class="menu-btn" type="checkbox" id="menu-btn">
+
+            <label class="menu-icon" for="menu-btn"
+                   aria-label="Toggle navigation menu">
+
+                <span class="navicon"></span>
+
+            </label>
+
+            <!-- Navigation Links -->
+
+            <ul class="menu">
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="aboutme.html">About</a></li>
+
+                <li><a href="choicepage.html" class="active">Art</a></li>
+
+                <li><a href="graphicdesign.html">Graphic Design</a></li>
+
+                <li><a href="website2.html">Contact</a></li>
+
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- =========================
+         PHOTOGRAPHY GALLERY
+    ========================== -->
+
+    <main class="gallery-container">
+
+        <!-- Page Heading -->
+
+        <div class="gallery-heading">
+
+            <h1>Black and White</h1>
+
+        </div>
+
+
+        <!-- Photography Grid -->
+
+        <section class="photo-grid"
+                 aria-label="Black and white photographs">
+
+
+            <!-- Photograph 1 -->
+
+            <figure class="photo-card">
+
+                <button class="photo-image" type="button"
+                        aria-label="View Hanging Section">
+
+                    <img src="hangingsection.png"
+                         alt="Black and white photograph of a chair beneath a window">
+
+                </button>
+
+                <figcaption>
+
+                    <h3>Hanging Section</h3>
+
+                    <p>Black and White Photography</p>
+
+                </figcaption>
+
+            </figure>
+
+
+            <!-- Photograph 2 -->
+
+            <figure class="photo-card">
+
+                <button class="photo-image" type="button"
+                        aria-label="View Lake">
+
+                    <img src="lake.png"
+                         alt="Black and white photograph of a lake and surrounding trees">
+
+                </button>
+
+                <figcaption>
+
+                    <h3>Lake</h3>
+
+                    <p>Black and White Photography</p>
+
+                </figcaption>
+
+            </figure>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FULL-SCREEN IMAGE VIEWER
+    ========================== -->
+
+    <dialog class="lightbox" id="lightbox"
+            aria-labelledby="lightbox-title">
+
+        <!-- Close Button -->
+
+        <button class="lightbox-close"
+                type="button"
+                aria-label="Close image viewer">
+
+            &times;
+
+        </button>
+
+
+        <!-- Full-Size Photograph -->
+
+        <div class="lightbox-content">
+
+            <img id="lightbox-image" alt="">
+
+            <div class="lightbox-caption">
+
+                <h2 id="lightbox-title"></h2>
+
+                <p id="lightbox-medium"></p>
+
+            </div>
+
+        </div>
+
+    </dialog>
+
+
+    <!-- =========================
+         IMAGE VIEWER JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const lightbox =
+            document.getElementById("lightbox");
+
+        const lightboxImage =
+            document.getElementById("lightbox-image");
+
+        const lightboxTitle =
+            document.getElementById("lightbox-title");
+
+        const lightboxMedium =
+            document.getElementById("lightbox-medium");
+
+        const closeButton =
+            document.querySelector(".lightbox-close");
+
+
+        // Open selected photograph
+
+        document.querySelectorAll(".photo-card").forEach(card => {
+
+            const button = card.querySelector(".photo-image");
+
+            button.addEventListener("click", () => {
+
+                const image = card.querySelector("img");
+
+                const title = card.querySelector("h3");
+
+                const medium = card.querySelector("figcaption p");
+
+                lightboxImage.src = image.src;
+
+                lightboxImage.alt = image.alt;
+
+                lightboxTitle.textContent = title.textContent;
+
+                lightboxMedium.textContent = medium.textContent;
+
+                lightbox.showModal();
+
+                document.body.style.overflow = "hidden";
+
+            });
+
+        });
+
+
+        // Close using X button
+
+        closeButton.addEventListener("click", () => {
+
+            lightbox.close();
+
+        });
+
+
+        // Close by clicking outside the photograph
+
+        lightbox.addEventListener("click", event => {
+
+            if (event.target === lightbox) {
+
+                lightbox.close();
+
+            }
+
+        });
+
+
+        // Restore scrolling when closed
+
+        lightbox.addEventListener("close", () => {
+
+            document.body.style.overflow = "";
+
+            lightboxImage.removeAttribute("src");
+
+        });
+
+    </script>
+
+<!-- Website Footer -->
+
+<footer style="
+    background-color: black;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+">
+
+    <div style="
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 35px;
+        margin-bottom: 20px;
+        font-size: 15px;
+    ">
+
+        <a href="aboutme.html"
+           style="color: white; text-decoration: none;">
+            About
+        </a>
+
+        <a href="https://www.instagram.com/66jelo/"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="color: white; text-decoration: none;">
+            Instagram
+        </a>
+
+        <a href="website2.html"
+           style="color: white; text-decoration: none;">
+            Contact
+        </a>
+
+    </div>
+
+    <p style="
+        color: #999999;
+        font-size: 12px;
+        line-height: 1.5;
+        margin: 0;
+    ">
+        &copy; 2026 Jonathan Alvarez
+    </p>
+
+</footer>
+
+</body>
+
+</html>

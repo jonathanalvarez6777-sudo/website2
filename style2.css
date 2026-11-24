@@ -1,0 +1,436 @@
+/*-- CSS Reset --*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   font-size: 100%;
+   font: inherit;
+   vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+   display: block;
+}
+body {
+   line-height: 1;
+}
+ol, ul {
+   list-style: none;
+}
+blockquote, q {
+   quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+   content: '';
+   content: none;
+}
+table {
+   border-collapse: collapse;
+   border-spacing: 0;
+}
+
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+
+
+nav {
+    background-color: rgb(0, 0, 0);
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+
+/* Logo */
+
+nav .logo {
+    display: block;
+    float: left;
+    width: 50px;
+    height: 70px;
+    margin-left: 10px;
+    background-image: url("websitelogo2.png");
+    background-size: 85%;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-decoration: none;
+}
+
+/* Hide Checkbox */
+
+nav .menu-btn {
+    display: none;
+}
+
+/* Hamburger Menu Icon */
+
+nav .menu-icon {
+    cursor: pointer;
+    float: right;
+    padding: 24px 20px;
+    position: relative;
+    user-select: none;
+    z-index: 2;
+}
+
+nav .menu-icon .navicon {
+    display: block;
+    position: relative;
+    width: 25px;
+    height: 2px;
+    background: white;
+    transition: background 0.2s ease-out;
+}
+
+nav .menu-icon .navicon::before,
+nav .menu-icon .navicon::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transition: all 0.2s ease-out;
+}
+
+nav .menu-icon .navicon::before {
+    top: -7px;
+}
+
+nav .menu-icon .navicon::after {
+    top: 7px;
+}
+
+/* Navigation Links */
+
+nav .menu {
+    clear: both;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: black;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+nav .menu li a {
+    display: block;
+    height: auto;
+    padding: 18px 50px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+/* Hover Effect */
+
+nav .menu li a:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Selected Page */
+
+nav .menu li a.active {
+    background-color: white;
+    color: black;
+}
+
+/* Show Mobile Menu When Checked */
+
+nav .menu-btn:checked ~ .menu {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+/* Animate Hamburger Into an X */
+
+nav .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+}
+
+nav .menu-btn:checked ~ .menu-icon .navicon::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+nav .menu-btn:checked ~ .menu-icon .navicon::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+/* =========================
+   DESKTOP NAVIGATION
+========================= */
+
+@media (min-width: 769px) {
+
+    nav .menu {
+        display: flex;
+        float: right;
+        clear: none;
+        max-height: none;
+        height: 70px;
+        overflow: visible;
+    }
+
+    nav .menu li {
+        display: block;
+    }
+
+    nav .menu li a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70px;
+        padding: 0 20px;
+        white-space: nowrap;
+    }
+
+    nav .menu-icon {
+        display: none;
+    }
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+main {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    padding-top: 70px;
+    overflow: hidden;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: calc(100vh - 70px);
+    height: calc(100dvh - 70px);
+
+    min-height: 0;
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+
+/* =========================
+   DESKTOP NAVIGATION
+========================= */
+
+@media (min-width: 769px) {
+
+    nav .menu {
+        display: flex;
+        float: right;
+        clear: none;
+        max-height: none;
+        height: 70px;
+        overflow: visible;
+    }
+
+    nav .menu li {
+        display: block;
+    }
+
+    nav .menu li a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70px;
+        padding: 0 20px;
+        white-space: nowrap;
+    }
+
+    nav .menu-icon {
+        display: none;
+    }
+    /* =========================
+   CONTACT PAGE 
+========================= */
+}
+body {font-family: Helvetica;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #000000;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #000000;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+
+
+
+/* =========================
+   CONTACT PAGE
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* =========================
+   CONTACT PAGE POSITION
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+
+    padding: 80px 20px 60px;
+
+    border-radius: 5px;
+    background-color: #ffffff;
+
+    flex: 1;
+}
+
+/* =========================
+   CONTACT PAGE HEADING
+========================= */
+
+.container label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* =========================
+   CONTACT FORM FIELDS
+========================= */
+
+.container input[type="text"],
+.container input[type="email"],
+.container textarea,
+.container select {
+    width: 100%;
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+
+    resize: vertical;
+
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.container input[type="submit"] {
+    background-color: #000000;
+    color: white;
+
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+.container input[type="submit"]:hover {
+    background-color: #333333;
+}
+/* =========================
+   FOOTER POSITION FIX
+========================= */
+
+html {
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    padding-top: 70px;
+    margin: 0;
+}
+
+footer {
+    margin-top: auto;
+    flex-shrink: 0;
+}
