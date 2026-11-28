@@ -569,3 +569,23 @@ nav .menu-btn:checked ~ .menu-icon .navicon::after {
     }
 
 }
+/* =========================
+   STICKY FOOTER
+========================= */
+
+body.photography-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.gallery-container {
+    flex: 1;
+}
+
+footer {
+    margin-top: auto;
+    flex-shrink: 0;
+    width: 100%;
+}
