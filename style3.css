@@ -531,3 +531,32 @@ nav .menu-btn:checked ~ .menu-icon .navicon::after {
     }
 
 }
+/* =========================
+   STICKY FOOTER
+========================= */
+
+html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body.about-page {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-top: 70px;
+    margin: 0;
+}
+
+body.about-page > .about-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+body.about-page > footer {
+    width: 100%;
+    margin: 0;
+    align-self: end;
+}
