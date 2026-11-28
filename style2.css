@@ -412,7 +412,7 @@ body {
     background-color: #333333;
 }
 /* =========================
-   FOOTER POSITION FIX
+   STICKY FOOTER
 ========================= */
 
 html {
@@ -422,15 +422,17 @@ html {
 body {
     display: flex;
     flex-direction: column;
-
     min-height: 100vh;
     min-height: 100dvh;
-
     padding-top: 70px;
     margin: 0;
+}
+
+.container {
+    flex: 1;
 }
 
 footer {
     margin-top: auto;
     flex-shrink: 0;
-}
+    width: 100%;
