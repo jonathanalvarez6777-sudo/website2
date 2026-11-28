@@ -381,4 +381,61 @@ body.home-page main {
 
 .quote-link:hover .quote-image {
     opacity: 0.8;
+} 
+/* =========================
+   STICKY FOOTER
+========================= */
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body.home-page {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Reserve Space for Navigation Bar */
+
+body.home-page > header {
+    flex-shrink: 0;
+    height: 70px;
+}
+
+/* Main Content */
+
+body.home-page > main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding-top: 0;
+}
+
+/* Hero Section */
+
+body.home-page .hero {
+    flex: 1;
+    height: auto;
+    min-height: 0;
+}
+
+/* Footer */
+
+body.home-page > footer {
+    margin: 0;
+    flex-shrink: 0;
+    width: 100%;
 }
